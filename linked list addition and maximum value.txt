@@ -1,0 +1,55 @@
+import java.util.*;
+class Node{
+    int data;
+    Node next;
+}
+class Main{
+    static Node head;
+    static void create(int d){
+        Node newnode,temp;
+        temp=head;
+        if(head==null){
+            head =new Node();
+            head.data=d;
+            head.next=null;
+        }
+        else{
+            newnode=new Node();
+            newnode.data=d;
+            newnode.next=null;
+            while(temp.next!=null){
+                temp=temp.next;
+            }
+            temp.next=newnode;
+        }
+    }
+    static void display(){
+        Node temp;
+        int sum=0;
+        temp=head;
+        int max=0;
+        if(head==null){
+            System.out.print("memory not allocated");
+        }
+        else{
+            while(temp!=null){
+                sum=sum+temp.data;//add
+                if(temp.data>max){//maximum
+            max=temp.data;
+        }
+        temp=temp.next;
+        }        
+        System.out.println(max);
+        }
+        
+        System.out.print(sum);    
+        
+    }
+    
+    public static void main(String[] args){
+        create(5);
+        create(5);
+        create(12);
+        display();
+    }
+}
